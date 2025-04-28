@@ -25,5 +25,16 @@ public class BookingService {
         this.availability = availability;
         this.producer     = producer;
     }
+    public String createBooking(String roomType, int nights) {
+        if(!availability.check(roomType, nights))
+        {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Room Type or Nights is not valid");
+        }
+        String bookingId = UUID.randomUUID().toString();
+        String x= bookingId+" Dina_52_7599";
+        producer.sendBooking(x);
+        return x;
+
+    }
 }
 

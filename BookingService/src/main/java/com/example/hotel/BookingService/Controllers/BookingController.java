@@ -20,7 +20,7 @@ public class BookingController {
 
     @PostMapping
     public ResponseEntity<String> book(@RequestParam String roomType, @RequestParam int nights) {
-        String id = service.createBooking(roomType, nights)+"Mohamed_Ayman_43_8078";
+        String id = service.createBooking(roomType, nights);
         return ResponseEntity.ok(id);
     }
 }
